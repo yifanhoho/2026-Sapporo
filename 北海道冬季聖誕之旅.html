@@ -1,0 +1,804 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>北海道冬季聖誕之旅</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&display=swap">
+<style>
+/* Layout concept: 和紙白底的繪本手帳。頂端固定選單、單欄卡片、粗墨線外框。
+   日期分頁固定在選單下方，切換時整張卡片彈跳進場。單一淺色風格，不做深色模式。 */
+:root{
+  --paper:#FFFCF6; --ink:#3E3A39; --ink-soft:#6A6361; --rule:#E8DFCB;
+  --coral:#F2A497; --sun:#F6D27A; --sky:#A8D3E6; --leaf:#B9DAA5;
+  --coral-t:#FCE6E1; --sun-t:#FCF2D6; --sky-t:#DFEFF6; --leaf-t:#E8F3E0;
+  --font:"Huninn","jf-openhuninn-2.1","PingFang TC","Hiragino Sans CNS","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+  --bd:3px solid var(--ink); --bd-s:2.5px solid var(--ink);
+  --nav-h:60px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;-webkit-text-size-adjust:100%;padding-bottom:28px}
+h1,h2,h3,p,ul,dl,dd{margin:0;font-weight:400}
+ul{padding:0;list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+a{color:inherit}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--paper);z-index:50}
+.wrap{max-width:560px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+svg{display:block;max-width:100%}
+
+/* 頂端選單 */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;height:var(--nav-h);background:var(--paper);border-bottom:var(--bd)}
+.nav .wrap{height:100%;display:flex;align-items:center;gap:8px}
+.logo{flex:none;width:36px;height:36px}
+.nav-links{flex:1;min-width:0;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.nav-links a{display:flex;align-items:center;justify-content:center;min-height:40px;border:var(--bd-s);border-radius:14px;background:var(--paper);font-size:14px;text-decoration:none;transition:transform .15s}
+.nav-links a:active{transform:scale(.92)}
+.nav-links a[aria-current="true"]{background:var(--sun)}
+a:focus-visible,button:focus-visible{outline:3px dashed var(--ink);outline-offset:3px}
+
+/* 首頁 */
+.hero{padding-top:18px}
+.hero-card{border:var(--bd);border-radius:32px;overflow:hidden;background:var(--paper)}
+.hero-card>svg{width:100%;height:auto;border-bottom:var(--bd)}
+.hero-body{padding:18px 18px 22px;display:grid;gap:10px}
+.eyebrow{font-size:12px;letter-spacing:.22em;color:var(--ink-soft)}
+h1{font-size:clamp(30px,9.5vw,40px);line-height:1.2;text-wrap:balance}
+.subtitle{font-size:20px;text-wrap:balance}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{display:inline-flex;align-items:center;border:var(--bd-s);border-radius:999px;padding:2px 12px 3px;font-size:14px;background:var(--paper)}
+.chip.c1{background:var(--coral-t)}.chip.c2{background:var(--sun-t)}.chip.c3{background:var(--sky-t)}
+.count{margin-top:14px;border:var(--bd);border-radius:28px;background:var(--sun-t);padding:14px 16px 16px;display:grid;gap:10px}
+.count-label{font-size:16px}
+.count-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cbox{border:var(--bd);border-radius:20px;text-align:center;padding:8px 0 6px;display:grid;line-height:1.15}
+.cbox .num{font-size:36px;font-variant-numeric:tabular-nums}
+.cbox .unit{font-size:13px}
+.cb1{background:var(--coral)}.cb2{background:var(--sky)}.cb3{background:var(--leaf)}
+.count-note{font-size:13px;color:var(--ink-soft)}
+.count-msg{font-size:18px;padding:4px 0}
+.rail{margin-top:20px}
+.rail svg{width:100%;height:auto}
+
+/* 區塊標題 */
+.sec{padding-top:38px;scroll-margin-top:calc(var(--nav-h) + env(safe-area-inset-top,0px) + 6px)}
+.sec-head{display:grid;gap:0;margin-bottom:14px}
+.sec-head .eyebrow{margin-bottom:2px}
+h2{position:relative;z-index:0;display:inline-block;width:fit-content;font-size:26px;line-height:1.3}
+h2::after{content:"";position:absolute;left:-5px;right:-5px;bottom:2px;height:12px;background:var(--hl,var(--sun));border-radius:6px;z-index:-1}
+
+/* 航班 */
+.flights{display:grid;gap:14px}
+.flight{border:var(--bd);border-radius:28px;background:var(--paper);overflow:hidden}
+.fl-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding:12px 16px;border-bottom:var(--bd)}
+.fl-out .fl-top{background:var(--coral-t)}.fl-back .fl-top{background:var(--sky-t)}
+.pill{display:inline-flex;align-items:center;border:var(--bd-s);border-radius:999px;padding:1px 12px 2px;font-size:14px;background:var(--paper)}
+.pill.coral{background:var(--coral)}.pill.sky{background:var(--sky)}
+.fl-airline{margin-left:auto;font-size:14px;color:var(--ink-soft)}
+.route{display:grid;grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr);align-items:center;gap:6px;padding:16px 16px 14px}
+.rp{display:grid;gap:0;line-height:1.3}
+.rp.r{text-align:right}
+.rp .code{font-size:13px;letter-spacing:.18em;color:var(--ink-soft)}
+.rp .time{font-size:30px;line-height:1.2;font-variant-numeric:tabular-nums}
+.rp .time small{font-size:14px;margin-right:2px}
+.rp .place{font-size:13px}
+.fl-path{width:64px;height:30px}
+.fl-foot{padding:10px 16px 14px;border-top:2.5px dashed var(--ink);font-size:14px;color:var(--ink-soft)}
+
+/* 每日行程 */
+.tabsbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--nav-h));z-index:55;background:var(--paper);padding-block:10px;border-bottom:var(--bd)}
+.tabs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.tab{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:54px;border:var(--bd-s);border-radius:16px;background:var(--paper);line-height:1.2;transition:transform .15s}
+.tab .d{font-size:15px;font-variant-numeric:tabular-nums}
+.tab .w{font-size:12px;color:var(--ink-soft)}
+.tab:active{transform:scale(.92)}
+.tab[aria-selected="true"]{background:var(--dc)}
+.tab[aria-selected="true"] .w{color:var(--ink)}
+.panel{padding-top:18px;outline:none}
+.day-head{display:grid;grid-template-columns:minmax(0,1fr) 84px;gap:8px 12px;align-items:center;border:var(--bd);border-radius:28px;background:var(--dct);padding:14px 14px 14px 18px}
+.day-head .tx{display:grid;gap:4px;min-width:0}
+.day-head .kicker{font-size:13px;letter-spacing:.16em}
+.day-head h3{font-size:21px;line-height:1.3;text-wrap:balance}
+.day-head .spots{font-size:13px;color:var(--ink-soft);line-height:1.5}
+.day-head .ic{width:84px;height:84px}
+.hl-chip{justify-self:start;display:inline-flex;margin-top:2px;border:var(--bd-s);border-radius:999px;padding:1px 12px 2px;font-size:14px;background:var(--coral)}
+.tl{margin-top:20px}
+.tl li{display:grid;grid-template-columns:52px 22px minmax(0,1fr);column-gap:8px}
+.tl .time{padding-top:11px;text-align:right;font-size:15px;font-variant-numeric:tabular-nums;line-height:1.5}
+.tl .time.ord{font-size:13px;padding-top:13px}
+.dotcol{position:relative}
+.dotcol::before{content:"";position:absolute;left:50%;top:23px;bottom:0;width:3px;margin-left:-1.5px;background:var(--ink)}
+.tl li:last-child .dotcol::before{bottom:auto;height:0}
+.dot{position:relative;display:block;width:16px;height:16px;margin:15px auto 0;border:var(--bd-s);border-radius:50%;background:var(--paper)}
+.stop .dot{background:var(--dc)}
+.stop.must .dot{background:var(--coral)}
+.card{margin-bottom:12px;border:var(--bd);border-radius:20px;background:var(--paper);padding:9px 14px 11px;min-width:0}
+.tl li:last-child .card{margin-bottom:0}
+.must .card{background:var(--sun-t)}
+.card .nm{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;font-size:17px;line-height:1.4}
+.card .nt{font-size:14px;color:var(--ink-soft);line-height:1.5}
+.card .tgs{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.tg{display:inline-flex;align-items:center;border:var(--bd-s);border-radius:999px;padding:3px 9px 4px;font-size:12px;line-height:1;background:var(--paper)}
+.t-sky{background:var(--sky)}.t-leaf{background:var(--leaf)}.t-sun{background:var(--sun)}.t-coral{background:var(--coral)}
+.stamp{display:inline-flex;align-items:center;gap:4px;border:var(--bd-s);border-radius:999px;padding:2px 10px 3px;font-size:13px;line-height:1.2;background:var(--coral);transform:rotate(-3deg)}
+.stamp svg{width:12px;height:12px}
+.note{margin-top:22px;border:var(--bd);border-radius:26px;background:var(--dct);padding:16px 16px 18px;display:grid;gap:10px}
+.note h4{margin:0;font-weight:400;font-size:19px}
+.blist{display:grid;gap:8px}
+.blist li{position:relative;padding-left:22px;font-size:15px;line-height:1.6}
+.blist li::before{content:"";position:absolute;left:2px;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--dc);border:2px solid var(--ink)}
+.cloud-list{display:flex;flex-wrap:wrap;gap:8px}
+.cloud-list li{border:var(--bd-s);border-radius:999px;padding:3px 14px 4px;background:var(--paper);font-size:15px}
+.sub{font-size:14px;color:var(--ink-soft)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:4px 18px;border:var(--bd);border-radius:999px;background:var(--coral);text-decoration:none;font-size:15px;transition:transform .15s;justify-self:start}
+.btn:active{transform:scale(.94)}
+
+/* 待辦 */
+.prog-card{border:var(--bd);border-radius:26px;background:var(--leaf-t);padding:14px 16px;display:grid;gap:10px;margin-bottom:14px}
+.prog-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:15px}
+.prog{height:20px;border:var(--bd);border-radius:999px;background:var(--paper);overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--leaf);border-right:var(--bd)}
+.prog i[style*="width:0%"]{border-right:0}
+.todo-group{border:var(--bd);border-radius:26px;background:var(--paper);padding:14px 16px 6px;margin-bottom:14px}
+.todo-group h3{display:flex;align-items:center;gap:8px;font-size:19px;margin-bottom:4px}
+.todo-group h3 i{display:inline-block;width:14px;height:14px;border:var(--bd-s);border-radius:50%}
+.chk{position:relative;display:flex;align-items:flex-start;gap:12px;padding:11px 0;min-height:48px;cursor:pointer;border-top:2px dashed var(--rule)}
+.todo-group .chk:first-of-type{border-top:0}
+.chk input{position:absolute;opacity:0;width:1px;height:1px}
+.box{flex:none;width:26px;height:26px;margin-top:1px;border:var(--bd);border-radius:9px;background:var(--paper);display:grid;place-items:center}
+.box svg{width:18px;height:18px;fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.box path{stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .25s ease}
+.chk input:checked+.box{background:var(--leaf)}
+.chk input:checked+.box path{stroke-dashoffset:0}
+.chk input:focus-visible+.box{outline:3px dashed var(--ink);outline-offset:3px}
+.ctext{font-size:16px;line-height:1.5;min-width:0}
+.chk input:checked~.ctext{color:var(--ink-soft);text-decoration:line-through;text-decoration-thickness:2px}
+.note .chk{border-top:0;padding:7px 0;min-height:44px}
+.note .ctext{font-size:15px}
+
+/* 住宿 */
+.hotel{border:var(--bd);border-radius:28px;overflow:hidden;background:var(--paper)}
+.hotel>svg{width:100%;height:auto;border-bottom:var(--bd)}
+.hotel-body{padding:16px 18px 20px;display:grid;gap:14px}
+.hotel h3{font-size:22px;line-height:1.3}
+.hotel .en{font-size:13px;letter-spacing:.08em;color:var(--ink-soft)}
+.info{display:grid;gap:10px}
+.info div{display:grid;grid-template-columns:64px minmax(0,1fr);gap:10px;align-items:baseline;padding-top:10px;border-top:2px dashed var(--rule)}
+.info dt{font-size:13px;color:var(--ink-soft)}
+.info dd{font-size:16px}
+.nights{display:flex;flex-wrap:wrap;gap:8px}
+.night{display:inline-flex;align-items:center;gap:5px;border:var(--bd-s);border-radius:999px;padding:2px 10px 3px;font-size:14px;background:var(--sky-t);font-variant-numeric:tabular-nums}
+.night svg{width:14px;height:14px}
+
+footer{padding-top:44px;display:grid;justify-items:center;gap:6px;text-align:center}
+footer svg{width:64px;height:auto}
+footer p{font-size:14px;color:var(--ink-soft)}
+
+/* 動畫：只在未要求減少動態時啟用 */
+@keyframes fall{from{transform:translate(0,-12px)}to{transform:translate(10px,262px)}}
+@keyframes fly{from{transform:translate(-130px,58px)}to{transform:translate(420px,26px)}}
+@keyframes drift{from{transform:translateX(-10px)}to{transform:translateX(26px)}}
+@keyframes bob{from{transform:translateY(0) scale(1)}to{transform:translateY(5px) scale(1.04)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes glow{from{opacity:.6}to{opacity:1}}
+@keyframes sway{from{transform:translateX(-6px)}to{transform:translateX(8px)}}
+@keyframes waddle{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+@keyframes twinkle{from{transform:scale(1)}to{transform:scale(1.22)}}
+@keyframes pop{0%{opacity:0;transform:translateY(22px) scale(.9)}55%{opacity:1;transform:translateY(-6px) scale(1.025)}78%{transform:translateY(2px) scale(.995)}100%{opacity:1;transform:none}}
+@keyframes rise{0%{opacity:0;transform:translateY(16px) scale(.96)}60%{opacity:1;transform:translateY(-3px) scale(1.01)}100%{opacity:1;transform:none}}
+@keyframes tabpop{0%{transform:scale(.88)}55%{transform:scale(1.14)}100%{transform:scale(1)}}
+@keyframes wiggle{0%,86%,100%{transform:rotate(-3deg)}90%{transform:rotate(3deg)}94%{transform:rotate(-6deg)}}
+@keyframes tick{0%{transform:scale(1)}45%{transform:scale(1.25)}100%{transform:scale(1)}}
+@keyframes dash{to{stroke-dashoffset:-20}}
+@keyframes sunpulse{from{transform:scale(1)}to{transform:scale(1.07)}}
+.flake{fill:#FFFCF6;transform:translateY(var(--y,40px))}
+.plane{transform:translate(170px,40px)}
+.tg-svg{transform-box:fill-box;transform-origin:center}
+.sun-g,.twinkle,.bow{transform-box:fill-box;transform-origin:center}
+.waddle{transform-origin:48px 84px}
+
+@media (prefers-reduced-motion:no-preference){
+  .flake{animation:fall var(--dur,8s) linear infinite;animation-delay:var(--dl,0s)}
+  .plane{animation:fly 30s linear infinite}
+  .c1{animation:drift 14s ease-in-out infinite alternate}
+  .c2{animation:drift 18s ease-in-out infinite alternate-reverse}
+  .sun-g{animation:sunpulse 4s ease-in-out infinite alternate}
+  .blink{animation:blink 1.8s ease-in-out infinite}
+  .glow{animation:glow 2.6s ease-in-out infinite alternate}
+  .glow.g2{animation-delay:-1.3s}
+  .train{animation:sway 3.6s ease-in-out infinite alternate}
+  .waddle{animation:waddle 1.4s ease-in-out infinite alternate}
+  .twinkle{animation:twinkle 1.8s ease-in-out infinite alternate}
+  .bow{animation:waddle 2s ease-in-out infinite alternate}
+  .snowman{animation:waddle 3s ease-in-out infinite alternate;transform-origin:50% 100%;transform-box:fill-box}
+  .fl-path .dashline{animation:dash 1.2s linear infinite}
+  .panel .day-head{animation:pop .6s cubic-bezier(.34,1.56,.64,1) both}
+  .panel .day-head .ic{animation:bob 2.4s ease-in-out infinite alternate}
+  .tl li{animation:rise .55s cubic-bezier(.34,1.56,.64,1) backwards;animation-delay:calc(var(--i) * 45ms + 120ms)}
+  .panel .note{animation:rise .55s cubic-bezier(.34,1.56,.64,1) backwards;animation-delay:var(--nd,400ms)}
+  .tab.pop{animation:tabpop .45s cubic-bezier(.34,1.56,.64,1)}
+  .stamp{animation:wiggle 3.2s ease-in-out infinite}
+  .chk input:checked+.box{animation:tick .35s ease}
+  .prog i{transition:width .6s cubic-bezier(.34,1.56,.64,1)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+
+<header class="nav">
+  <div class="wrap">
+    <svg class="logo" viewBox="0 0 36 36" aria-hidden="true">
+      <circle cx="18" cy="18" r="16" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3"/>
+      <g stroke="#FFFCF6" stroke-width="2.6" stroke-linecap="round"><path d="M18 8v20M9.3 13l17.4 10M9.3 23l17.4-10"/></g>
+    </svg>
+    <nav class="nav-links" aria-label="頁面選單">
+      <a href="#flights">航班</a>
+      <a href="#itinerary">行程</a>
+      <a href="#todo">待辦</a>
+      <a href="#hotel">住宿</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-card">
+      <svg viewBox="0 0 360 250" role="img" aria-label="飄雪的札幌：電視塔、紅屋頂小屋與一架飛過的客機">
+        <rect width="360" height="250" fill="#A8D3E6"/>
+        <g class="sun-g"><circle cx="296" cy="56" r="25" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/></g>
+        <g transform="translate(22 34)"><g class="c1"><path d="M0 30H70A10 10 0 0 0 70 10A16 16 0 0 0 40 8A12 12 0 0 0 12 14A8 8 0 0 0 0 30Z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/></g></g>
+        <g transform="translate(222 96) scale(.7)"><g class="c2"><path d="M0 30H70A10 10 0 0 0 70 10A16 16 0 0 0 40 8A12 12 0 0 0 12 14A8 8 0 0 0 0 30Z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/></g></g>
+        <path d="M0 168L46 126L84 156L136 108L196 170L246 132L304 172L360 138V220H0Z" fill="#DFEFF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+        <g fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
+          <path d="M46 126L33 138L40 135L46 142L53 135L61 138Z"/>
+          <path d="M136 108L120 123L129 119L136 127L143 119L151 123Z"/>
+          <path d="M246 132L230 144L238 141L246 148L254 141L263 144Z"/>
+        </g>
+        <path d="M0 190Q80 164 170 186T360 176V230H0Z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+        <!-- 札幌電視塔 -->
+        <g transform="translate(120 208)" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M-17 0L-6 -70H6L17 0Z" fill="#FFFCF6"/>
+          <path d="M-12 -24H12M-9 -46H9" fill="none"/>
+          <rect x="-19" y="-92" width="38" height="22" rx="6" fill="#F6D27A"/>
+          <path d="M-12 -81H12" fill="none"/>
+          <rect x="-8" y="-112" width="16" height="20" rx="3" fill="#F2A497"/>
+          <path d="M0 -112V-140" fill="none"/>
+          <circle class="blink" cx="0" cy="-143" r="4" fill="#F2A497"/>
+        </g>
+        <!-- 紅屋頂小屋 -->
+        <g transform="translate(264 208)" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
+          <rect x="14" y="-62" width="9" height="20" fill="#FFFCF6"/>
+          <rect x="-26" y="-36" width="52" height="40" fill="#FFFCF6"/>
+          <path d="M-34 -36L0 -66L34 -36Z" fill="#F2A497"/>
+          <rect class="glow" x="-10" y="-26" width="16" height="16" rx="3" fill="#F6D27A"/>
+        </g>
+        <path d="M0 216Q70 200 140 212T290 206T360 208V250H0Z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+        <g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
+          <g transform="translate(58 224)"><rect x="-3" y="2" width="6" height="12" fill="#3E3A39"/><path d="M-17 6L0 -22L17 6Z" fill="#B9DAA5"/><path d="M-12 -12L0 -38L12 -12Z" fill="#B9DAA5"/></g>
+          <g transform="translate(192 232) scale(.8)"><rect x="-3" y="2" width="6" height="12" fill="#3E3A39"/><path d="M-17 6L0 -22L17 6Z" fill="#B9DAA5"/><path d="M-12 -12L0 -38L12 -12Z" fill="#B9DAA5"/></g>
+          <g transform="translate(322 228) scale(.9)"><rect x="-3" y="2" width="6" height="12" fill="#3E3A39"/><path d="M-17 6L0 -22L17 6Z" fill="#B9DAA5"/><path d="M-12 -12L0 -38L12 -12Z" fill="#B9DAA5"/></g>
+        </g>
+        <g id="flakes"></g>
+        <g class="plane" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M-110 8H-18" stroke="#FFFCF6" stroke-dasharray="2 9" fill="none"/>
+          <path d="M-8 6L-16 -9L-2 -9L8 4Z" fill="#B9DAA5"/>
+          <path d="M-10 4Q-10 -3 0 -3H40Q56 -3 58 5Q56 13 40 13H0Q-10 13 -10 4Z" fill="#FFFCF6"/>
+          <path d="M-6 9H54" stroke="#B9DAA5" stroke-width="3" fill="none"/>
+          <path d="M16 10L30 28H38L32 10Z" fill="#B9DAA5"/>
+          <circle cx="26" cy="3" r="2" fill="#3E3A39" stroke="none"/><circle cx="34" cy="3" r="2" fill="#3E3A39" stroke="none"/><circle cx="42" cy="3" r="2" fill="#3E3A39" stroke="none"/>
+        </g>
+      </svg>
+      <div class="hero-body">
+        <p class="eyebrow">HOKKAIDO WINTER TRIP</p>
+        <h1>北海道 6 天 5 夜</h1>
+        <p class="subtitle">冬季聖誕之旅</p>
+        <div class="chips">
+          <span class="chip c1">2026.12.04 — 12.09</span>
+          <span class="chip c2">札幌住宿 5 晚</span>
+          <span class="chip c3">兩人旅行</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="count" id="count">
+      <p class="count-label" id="cd-label">距離出發還有</p>
+      <div class="count-grid" id="cd-grid">
+        <div class="cbox cb1"><span class="num" id="cd-d">--</span><span class="unit">天</span></div>
+        <div class="cbox cb2"><span class="num" id="cd-h">--</span><span class="unit">小時</span></div>
+        <div class="cbox cb3"><span class="num" id="cd-m">--</span><span class="unit">分鐘</span></div>
+      </div>
+      <p class="count-msg" id="cd-msg" hidden></p>
+      <p class="count-note">12/4（五）06:15 桃園機場 T2 起飛</p>
+    </div>
+
+    <div class="rail" aria-hidden="true">
+      <svg viewBox="0 0 360 70">
+        <path d="M0 64H360" stroke="#3E3A39" stroke-width="5" stroke-dasharray="3 11" fill="none"/>
+        <path d="M0 58H360" stroke="#3E3A39" stroke-width="3" fill="none"/>
+        <g class="train" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
+          <g id="car">
+            <rect x="14" y="20" width="80" height="34" rx="10" fill="#FFFCF6"/>
+            <rect x="14" y="42" width="80" height="6" fill="#B9DAA5"/>
+            <rect x="24" y="27" width="16" height="11" rx="3" fill="#A8D3E6" stroke-width="2.5"/><rect x="46" y="27" width="16" height="11" rx="3" fill="#A8D3E6" stroke-width="2.5"/><rect x="68" y="27" width="16" height="11" rx="3" fill="#A8D3E6" stroke-width="2.5"/>
+          </g>
+          <path d="M94 38H100" fill="none"/>
+          <rect x="100" y="20" width="80" height="34" rx="10" fill="#FFFCF6"/>
+          <rect x="100" y="42" width="80" height="6" fill="#B9DAA5"/>
+          <rect x="110" y="27" width="16" height="11" rx="3" fill="#A8D3E6" stroke-width="2.5"/><rect x="132" y="27" width="16" height="11" rx="3" fill="#A8D3E6" stroke-width="2.5"/><rect x="154" y="27" width="16" height="11" rx="3" fill="#A8D3E6" stroke-width="2.5"/>
+          <path d="M180 38H186" fill="none"/>
+          <path d="M186 54V28Q186 20 194 20H262Q288 20 296 42L298 54Z" fill="#FFFCF6"/>
+          <path d="M186 42H297L298 48H186Z" fill="#B9DAA5" stroke="none"/>
+          <rect x="196" y="27" width="16" height="11" rx="3" fill="#A8D3E6" stroke-width="2.5"/><rect x="218" y="27" width="16" height="11" rx="3" fill="#A8D3E6" stroke-width="2.5"/><path d="M246 27H262Q272 27 278 38H246Z" fill="#A8D3E6" stroke-width="2.5"/>
+          <circle cx="291" cy="47" r="2.5" fill="#F6D27A" stroke-width="2"/>
+          <g fill="#3E3A39" stroke="none"><circle cx="32" cy="56" r="4.5"/><circle cx="76" cy="56" r="4.5"/><circle cx="118" cy="56" r="4.5"/><circle cx="162" cy="56" r="4.5"/><circle cx="204" cy="56" r="4.5"/><circle cx="268" cy="56" r="4.5"/></g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="flights">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">FLIGHT</p>
+      <h2 style="--hl:var(--sky)">航班資訊</h2>
+    </div>
+    <div class="flights">
+      <article class="flight fl-out">
+        <div class="fl-top"><span class="pill coral">去程</span><span>12/4（五）</span><span class="fl-airline">長榮航空 EVA Air</span></div>
+        <div class="route">
+          <div class="rp"><span class="code">TPE</span><span class="time">06:15</span><span class="place">桃園國際機場 T2</span></div>
+          <svg class="fl-path" viewBox="0 0 64 30" aria-hidden="true">
+            <path class="dashline" d="M2 15H62" stroke="#3E3A39" stroke-width="3" stroke-dasharray="6 6" stroke-linecap="round" fill="none"/>
+            <g transform="translate(20 4)" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"><path d="M0 7Q0 3 4 3H18Q24 3 24 7Q24 11 18 11H4Q0 11 0 7Z" fill="#FFFCF6"/><path d="M8 10L13 22H16L13 10Z" fill="#B9DAA5"/><path d="M1 4L-2 -2H3L5 3Z" fill="#B9DAA5"/></g>
+          </svg>
+          <div class="rp r"><span class="code">CTS</span><span class="time"><small>約</small>11:00</span><span class="place">札幌新千歲機場</span></div>
+        </div>
+        <p class="fl-foot">11:00 入境、領行李，12:00 搭 JR 前往札幌。</p>
+      </article>
+      <article class="flight fl-back">
+        <div class="fl-top"><span class="pill sky">回程</span><span>12/9（三）</span><span class="fl-airline">長榮航空 EVA Air</span></div>
+        <div class="route">
+          <div class="rp"><span class="code">CTS</span><span class="time">15:20</span><span class="place">札幌新千歲機場</span></div>
+          <svg class="fl-path" viewBox="0 0 64 30" aria-hidden="true">
+            <path class="dashline" d="M2 15H62" stroke="#3E3A39" stroke-width="3" stroke-dasharray="6 6" stroke-linecap="round" fill="none"/>
+            <g transform="translate(20 4)" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"><path d="M0 7Q0 3 4 3H18Q24 3 24 7Q24 11 18 11H4Q0 11 0 7Z" fill="#FFFCF6"/><path d="M8 10L13 22H16L13 10Z" fill="#B9DAA5"/><path d="M1 4L-2 -2H3L5 3Z" fill="#B9DAA5"/></g>
+          </svg>
+          <div class="rp r"><span class="code">TPE</span><span class="time">18:55</span><span class="place">桃園國際機場 T2</span></div>
+        </div>
+        <p class="fl-foot">14:00 報到、托運、安檢，依航空公司規定。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="itinerary">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">ITINERARY</p>
+      <h2 style="--hl:var(--coral)">每日行程</h2>
+    </div>
+  </div>
+  <div class="tabsbar">
+    <div class="wrap">
+      <div class="tabs" role="tablist" aria-label="選擇日期" id="tabs"></div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="panel" id="panel" role="tabpanel" tabindex="0"></div>
+  </div>
+</section>
+
+<section class="sec" id="todo">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">TO-DO</p>
+      <h2 style="--hl:var(--leaf)">出發前待辦</h2>
+    </div>
+    <div class="prog-card">
+      <div class="prog-top"><span id="prog-text">已完成 0 / 0</span><span id="prog-hint" class="sub">打勾會記在這支手機上</span></div>
+      <div class="prog" id="prog" role="progressbar" aria-label="待辦完成進度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="prog-bar" style="width:0%"></i></div>
+    </div>
+    <div id="todo-lists"></div>
+  </div>
+</section>
+
+<section class="sec" id="hotel">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">HOTEL</p>
+      <h2 style="--hl:var(--sun)">住宿資訊</h2>
+    </div>
+    <article class="hotel">
+      <svg viewBox="0 0 360 160" role="img" aria-label="雪夜裡亮著燈的飯店">
+        <rect width="360" height="160" fill="#DFEFF6"/>
+        <circle cx="304" cy="36" r="15" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
+        <g fill="#FFFCF6"><circle class="glow" cx="40" cy="30" r="2.5"/><circle class="glow g2" cx="84" cy="52" r="2"/><circle class="glow" cx="250" cy="22" r="2.5"/><circle class="glow g2" cx="330" cy="80" r="2"/><circle class="glow" cx="20" cy="82" r="2"/></g>
+        <path d="M0 130Q90 114 180 128T360 122V160H0Z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+        <g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
+          <rect x="116" y="46" width="128" height="86" rx="6" fill="#FCE6E1"/>
+          <rect x="108" y="34" width="144" height="16" rx="8" fill="#FFFCF6"/>
+          <rect class="glow" x="130" y="64" width="18" height="16" rx="3" fill="#F6D27A"/>
+          <rect class="glow g2" x="171" y="64" width="18" height="16" rx="3" fill="#F6D27A"/>
+          <rect class="glow" x="212" y="64" width="18" height="16" rx="3" fill="#F6D27A"/>
+          <rect class="glow g2" x="130" y="90" width="18" height="16" rx="3" fill="#F6D27A"/>
+          <rect class="glow" x="212" y="90" width="18" height="16" rx="3" fill="#F6D27A"/>
+          <rect x="166" y="96" width="28" height="36" rx="5" fill="#A8D3E6"/>
+          <path d="M180 96V132" fill="none"/>
+        </g>
+        <g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
+          <g transform="translate(60 136)"><rect x="-3" y="2" width="6" height="12" fill="#3E3A39"/><path d="M-17 6L0 -22L17 6Z" fill="#B9DAA5"/><path d="M-12 -12L0 -38L12 -12Z" fill="#B9DAA5"/></g>
+          <g transform="translate(300 134) scale(.85)"><rect x="-3" y="2" width="6" height="12" fill="#3E3A39"/><path d="M-17 6L0 -22L17 6Z" fill="#B9DAA5"/><path d="M-12 -12L0 -38L12 -12Z" fill="#B9DAA5"/></g>
+        </g>
+      </svg>
+      <div class="hotel-body">
+        <div>
+          <h3>札幌諾特飯店</h3>
+          <p class="en">THE KNOT SAPPORO</p>
+        </div>
+        <dl class="info">
+          <div><dt>入住</dt><dd>12/4（五）15:00 後</dd></div>
+          <div><dt>退房</dt><dd>12/9（三）11:00 前</dd></div>
+          <div><dt>住宿</dt><dd>共 5 晚</dd></div>
+          <div><dt>提醒</dt><dd>12/4 約 13:00 抵達札幌，可先到飯店寄放行李，15:00 後入住。</dd></div>
+        </dl>
+        <ul class="nights" aria-label="住宿的五個晚上">
+          <li class="night"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M10 1.5A6 6 0 1 0 12.5 9 5 5 0 0 1 10 1.5Z" fill="#F6D27A" stroke="#3E3A39" stroke-width="1.6" stroke-linejoin="round"/></svg>12/4</li>
+          <li class="night"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M10 1.5A6 6 0 1 0 12.5 9 5 5 0 0 1 10 1.5Z" fill="#F6D27A" stroke="#3E3A39" stroke-width="1.6" stroke-linejoin="round"/></svg>12/5</li>
+          <li class="night"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M10 1.5A6 6 0 1 0 12.5 9 5 5 0 0 1 10 1.5Z" fill="#F6D27A" stroke="#3E3A39" stroke-width="1.6" stroke-linejoin="round"/></svg>12/6</li>
+          <li class="night"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M10 1.5A6 6 0 1 0 12.5 9 5 5 0 0 1 10 1.5Z" fill="#F6D27A" stroke="#3E3A39" stroke-width="1.6" stroke-linejoin="round"/></svg>12/7</li>
+          <li class="night"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M10 1.5A6 6 0 1 0 12.5 9 5 5 0 0 1 10 1.5Z" fill="#F6D27A" stroke="#3E3A39" stroke-width="1.6" stroke-linejoin="round"/></svg>12/8</li>
+        </ul>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=The%20Knot%20Sapporo" target="_blank" rel="noopener">在地圖上查看</a>
+      </div>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap" style="display:grid;justify-items:center;gap:6px">
+    <svg viewBox="0 0 60 84" aria-hidden="true">
+      <g class="snowman" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+        <circle cx="30" cy="58" r="20" fill="#FFFCF6"/>
+        <circle cx="30" cy="28" r="14" fill="#FFFCF6"/>
+        <path d="M14 10H46M20 10V0H40V10" fill="#F2A497"/>
+        <path d="M17 41Q30 50 43 41L42 48Q30 56 18 48Z" fill="#A8D3E6"/>
+        <path d="M30 28L40 31L30 33Z" fill="#F6D27A"/>
+        <circle cx="25" cy="23" r="1.6" fill="#3E3A39"/><circle cx="35" cy="23" r="1.6" fill="#3E3A39"/>
+        <circle cx="30" cy="62" r="1.8" fill="#3E3A39"/><circle cx="30" cy="70" r="1.8" fill="#3E3A39"/>
+      </g>
+    </svg>
+    <p>2026.12.04 — 12.09 ・ 札幌 旭川 美瑛 小樽</p>
+    <p>燈飾與市集期間資料來源：ようこそさっぽろ</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(s, r){ return (r || document).querySelector(s); };
+
+  /* ---------- 儲存（只存在這支裝置） ---------- */
+  var KEY = 'hokkaido-2026-checks';
+  var store = {};
+  try { store = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { store = {}; }
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
+
+  /* ---------- 雪花 ---------- */
+  (function(){
+    var g = $('#flakes'), xs = [14,44,76,108,140,172,204,236,268,300,332,28,92,156,220,284,346,124], h = '';
+    for (var i = 0; i < xs.length; i++) {
+      var r = (2 + (i % 3) * 0.6).toFixed(1);
+      var y = 20 + ((i * 53) % 200);
+      var dur = (6 + (i % 5) * 1.3).toFixed(1);
+      var dl = (-(i * 0.9)).toFixed(1);
+      h += '<circle class="flake" cx="' + xs[i] + '" cy="0" r="' + r + '" style="--y:' + y + 'px;--dur:' + dur + 's;--dl:' + dl + 's"/>';
+    }
+    g.innerHTML = h;
+  })();
+
+  /* ---------- 倒數 ---------- */
+  var DEP = new Date('2026-12-04T06:15:00+08:00').getTime();
+  var BACK = new Date('2026-12-09T18:55:00+08:00').getTime();
+  function tick(){
+    var now = Date.now(), diff = DEP - now;
+    var grid = $('#cd-grid'), msg = $('#cd-msg'), label = $('#cd-label');
+    if (diff > 0) {
+      var d = Math.floor(diff / 864e5), h = Math.floor(diff % 864e5 / 36e5), m = Math.floor(diff % 36e5 / 6e4);
+      $('#cd-d').textContent = d; $('#cd-h').textContent = h; $('#cd-m').textContent = m;
+      grid.hidden = false; msg.hidden = true; label.textContent = '距離出發還有';
+    } else {
+      grid.hidden = true; msg.hidden = false;
+      label.textContent = now < BACK ? '旅程進行中' : '旅程結束';
+      msg.textContent = now < BACK ? '玩得開心，記得多拍幾張雪景！' : '歡迎回家，期待下次出發。';
+    }
+  }
+  tick(); setInterval(tick, 30000);
+
+  /* ---------- 行程資料 ---------- */
+  var TAGS = {
+    plane:['飛機','t-sky'], jr:['JR','t-leaf'], subway:['地鐵','t-sun'],
+    walk:['步行',''], charter:['包車','t-coral'], ropeway:['纜車','t-sun']
+  };
+  var STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 7 7 .8-5.3 4.8 1.6 7.4L12 18.3 5.7 22l1.6-7.4L2 9.8 9 9z" fill="#F6D27A" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round"/></svg>';
+  var INK = 'var(--ink)';
+  var ICONS = {
+    tree:'<svg class="ic" viewBox="0 0 96 96" aria-hidden="true" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="42" y="76" width="12" height="12" fill="#3E3A39"/><path d="M16 78L48 40L80 78Z" fill="#B9DAA5"/><path d="M24 58L48 28L72 58Z" fill="#B9DAA5"/><circle cx="38" cy="66" r="4" fill="#F2A497"/><circle cx="60" cy="70" r="4" fill="#F2A497"/><circle cx="48" cy="48" r="3.5" fill="#A8D3E6"/><path class="twinkle" d="M48 4l4 9 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1z" fill="#F6D27A"/></svg>',
+    torii:'<svg class="ic" viewBox="0 0 96 96" aria-hidden="true" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="24" y="44" width="10" height="44" fill="#F2A497"/><rect x="62" y="44" width="10" height="44" fill="#F2A497"/><rect x="18" y="42" width="60" height="8" fill="#F2A497"/><path d="M6 22Q48 34 90 22L88 32Q48 44 8 32Z" fill="#F2A497"/><path d="M14 24Q48 34 82 24Q72 18 62 20Q48 12 34 20Q24 16 14 24Z" fill="#FFFCF6"/></svg>',
+    brick:'<svg class="ic" viewBox="0 0 96 96" aria-hidden="true" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="40" y="8" width="16" height="22" fill="#F6D27A"/><rect x="14" y="46" width="68" height="42" fill="#F2A497"/><path d="M8 48L48 22L88 48Z" fill="#B9DAA5"/><rect x="22" y="56" width="11" height="11" fill="#FFFCF6"/><rect x="63" y="56" width="11" height="11" fill="#FFFCF6"/><rect x="41" y="64" width="14" height="24" fill="#F6D27A"/></svg>',
+    penguin:'<svg class="ic" viewBox="0 0 96 96" aria-hidden="true" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><g class="waddle"><ellipse cx="38" cy="86" rx="10" ry="4.5" fill="#F6D27A"/><ellipse cx="58" cy="86" rx="10" ry="4.5" fill="#F6D27A"/><ellipse cx="48" cy="52" rx="25" ry="33" fill="#3E3A39"/><path d="M24 50Q12 64 21 76Q28 68 28 58Z" fill="#3E3A39"/><path d="M72 50Q84 64 75 76Q68 68 68 58Z" fill="#3E3A39"/><ellipse cx="48" cy="62" rx="15" ry="22" fill="#FFFCF6" stroke="none"/><path d="M27 52Q48 66 69 52L67 61Q48 74 29 61Z" fill="#F2A497"/><path d="M41 41L48 48L55 41Z" fill="#F6D27A"/><circle cx="40" cy="34" r="3.5" fill="#FFFCF6" stroke="none"/><circle cx="56" cy="34" r="3.5" fill="#FFFCF6" stroke="none"/><circle cx="40.8" cy="34" r="1.4" fill="#3E3A39" stroke="none"/><circle cx="56.8" cy="34" r="1.4" fill="#3E3A39" stroke="none"/></g></svg>',
+    lamp:'<svg class="ic" viewBox="0 0 96 96" aria-hidden="true" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><circle class="glow" cx="48" cy="24" r="22" fill="#F6D27A" stroke="none" opacity=".45"/><rect x="44" y="32" width="8" height="44" fill="#3E3A39"/><path d="M34 80H62L58 70H38Z" fill="#3E3A39"/><path d="M36 14H60L56 32H40Z" fill="#F6D27A"/><path d="M33 14L48 4L63 14Z" fill="#3E3A39"/><path d="M0 84q6-6 12 0t12 0t12 0t12 0t12 0t12 0t12 0t12 0V96H0Z" fill="#A8D3E6"/></svg>',
+    gift:'<svg class="ic" viewBox="0 0 96 96" aria-hidden="true" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="16" y="46" width="64" height="42" fill="#F6D27A"/><rect x="12" y="34" width="72" height="16" rx="3" fill="#F2A497"/><rect x="42" y="34" width="12" height="54" fill="#A8D3E6"/><path class="bow" d="M48 34C34 8 14 22 48 34C82 22 62 8 48 34Z" fill="#A8D3E6"/></svg>'
+  };
+
+  var DAYS = [
+    { date:'12/4', wk:'五', c:'coral', icon:'tree', title:'抵達札幌・聖誕市集',
+      spots:'UNIQLO、狸小路、大通公園聖誕市集', hl:'當晚必去：慕尼黑聖誕市集',
+      items:[
+        ['06:15','桃園機場起飛','長榮航空','plane'],
+        ['11:00','抵達新千歲機場','入境、領行李',''],
+        ['12:00','搭 JR 前往札幌','約 40 分鐘','jr'],
+        ['13:00','抵達札幌市區','先到飯店寄放行李',''],
+        ['13:30','UNIQLO 採買','HEATTECH、手套、保暖襪','walk'],
+        ['15:00','飯店入住','稍作休息',''],
+        ['16:30','大通公園','開始欣賞冬季燈飾','walk'],
+        ['17:00','慕尼黑聖誕市集','熱紅酒、香腸、聖誕小物','walk',1],
+        ['18:30','札幌電視塔周邊','拍攝聖誕燈飾','walk'],
+        ['19:00','晚餐','湯咖哩或成吉思汗烤羊肉',''],
+        ['20:00','狸小路商店街','藥妝、唐吉訶德、零食採買','walk']
+      ],
+      note:{ title:'當天重點', list:[
+        '慕尼黑聖誕市集：2026/11/20～12/25，11:00～21:00。',
+        '札幌白色燈樹節：大通會場同樣在 11/20～12/25 舉辦。',
+        '12/4 抵達就能遇上兩個活動，不需要另外安排日期。'
+      ]}
+    },
+    { date:'12/5', wk:'六', c:'sun', icon:'torii', title:'北海道神宮・白色戀人公園',
+      spots:'北海道神宮、白色戀人公園、狸小路',
+      items:[
+        ['09:00','飯店出發','早餐',''],
+        ['10:00','北海道神宮','參拜、雪景散步','subway',1],
+        ['11:30','午餐','札幌在地料理',''],
+        ['13:00','白色戀人公園','巧克力工廠、園區拍照','subway',1],
+        ['15:30','返回札幌市區','','subway'],
+        ['16:00','狸小路商店街','逛街、藥妝、伴手禮','walk'],
+        ['18:00','晚餐','札幌味噌拉麵或海鮮料理',''],
+        ['19:30','自由活動','薄野、狸小路周邊','walk']
+      ],
+      note:{ title:'這天的安排想法', list:[
+        '北海道神宮和白色戀人公園都在札幌西側，安排在同一天可以避免來回移動。',
+        '狸小路排在下午到晚上，有充裕時間逛藥妝、買零食，第一天抵達就不用急著逛完整條商店街。'
+      ]}
+    },
+    { date:'12/6', wk:'日', c:'sky', icon:'brick', title:'札幌市區・聖誕燈飾',
+      spots:'北海道大學、札幌 Factory、Akapla',
+      items:[
+        ['09:30','飯店出發','',''],
+        ['10:00','北海道大學','校園散步、拍照',''],
+        ['11:30','午餐','札幌車站周邊',''],
+        ['13:00','札幌車站商圈','大丸、Stellar Place','walk'],
+        ['15:00','札幌 Factory','聖誕樹、室內商場',''],
+        ['17:00','Akapla 赤磚廣場','冬季燈飾、拍照','walk',1],
+        ['18:00','晚餐','札幌市區',''],
+        ['19:30','站前通燈飾','夜間散步、回飯店','walk']
+      ],
+      note:{ title:'這天的特色', list:[
+        '北海道大學：冬季校園雪景。',
+        '札幌 Factory：可以欣賞室內中庭的聖誕季裝飾。巨型聖誕樹的 2026 年活動細節，建議出發前再確認。',
+        'Akapla：紅磚建築搭配冬季燈飾，適合拍有質感的照片。燈飾期間為 2026/11/20 起至 2027/3/14。'
+      ]}
+    },
+    { date:'12/7', wk:'一', c:'leaf', icon:'penguin', title:'旭山動物園・美瑛包車一日遊',
+      spots:'旭山動物園、青池、白鬚瀑布、森林精靈露台', hl:'全日包車・長途行程',
+      ord:true,
+      items:[
+        ['第 1 站','旭山動物園','企鵝散步、北極熊、雪地動物','charter',1],
+        ['第 2 站','美瑛青池','冬季雪景與池水','charter',1],
+        ['第 3 站','網紅樹','美瑛丘陵景觀','charter'],
+        ['第 4 站','白鬚瀑布','冬季冰雪瀑布','charter'],
+        ['第 5 站','森林精靈露台','木屋小店、夜間燈飾','charter']
+      ],
+      note:{ title:'包車注意事項', klook:true,
+        intro:'下訂前先確認以下幾點，確認完就打勾：',
+        checks:[
+          ['k1','旭山動物園是否有足夠停留時間，尤其是企鵝散步時段。'],
+          ['k2','青池是否會安排白天與夜間兩次參觀；如果是同一個青池，可能會壓縮其他景點時間。'],
+          ['k3','森林精靈露台是否確定包含在行程內。'],
+          ['k4','白鬚瀑布與青池的點燈是否都包含。'],
+          ['k5','當天預計幾點返回札幌。']
+        ],
+        outro:'這天是長途行程，不建議再額外塞札幌市區景點。'
+      }
+    },
+    { date:'12/8', wk:'二', c:'coral', icon:'lamp', title:'朝里・小樽浪漫一日遊',
+      spots:'朝里、小樽運河、堺町通、天狗山',
+      items:[
+        ['08:30','飯店出發','札幌車站搭 JR','jr'],
+        ['09:30','朝里站','海邊鐵道、拍照','jr'],
+        ['10:30','前往小樽','JR','jr'],
+        ['11:00','小樽運河','經典景點','walk',1],
+        ['12:00','午餐','壽司、海鮮丼',''],
+        ['13:00','堺町通商店街','甜點、玻璃工藝','walk'],
+        ['14:00','北一硝子','玻璃製品','walk'],
+        ['14:30','小樽音樂盒堂','音樂盒、伴手禮','walk'],
+        ['15:30','LeTAO','起司蛋糕、甜點','walk'],
+        ['16:30','天狗山','視天候搭纜車看夜景','ropeway',1],
+        ['18:00','返回札幌','JR 回飯店','jr']
+      ],
+      note:{ title:'小樽必吃、必逛', chips:['小樽運河','堺町通商店街','北一硝子','小樽音樂盒堂','LeTAO'],
+        text:'朝里站比較吃天氣，如果遇到大雪、強風或交通延誤，可以直接前往小樽，不用勉強停留。天狗山要看當天纜車是否營運及天候狀況。'
+      }
+    },
+    { date:'12/9', wk:'三', c:'sun', icon:'gift', title:'札幌退房・新千歲機場購物',
+      spots:'退房、新千歲機場購物、返台',
+      items:[
+        ['08:30','早餐、整理行李','',''],
+        ['10:00','飯店退房準備','',''],
+        ['11:00','最晚退房','寄放行李後出發',''],
+        ['11:30','札幌搭 JR 前往機場','預留雪天交通緩衝','jr'],
+        ['12:20','抵達新千歲機場','建議時間',''],
+        ['12:30','機場午餐','拉麵、海鮮、湯咖哩',''],
+        ['13:00','機場購物','伴手禮採買',''],
+        ['14:00','報到、托運、安檢','依航空公司規定',''],
+        ['15:20','起飛返台','','plane'],
+        ['18:55','抵達桃園機場','T2','plane']
+      ],
+      note:{ title:'新千歲機場必買', chips:['白色戀人','ROYCE’ 生巧克力','薯條三兄弟','六花亭奶油夾心餅乾','LeTAO 起司蛋糕','SNOW CHEESE'] }
+    }
+  ];
+
+  function chk(id, text){
+    var on = store[id] ? ' checked' : '';
+    return '<label class="chk"><input type="checkbox" data-id="' + id + '"' + on + '>' +
+      '<span class="box" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M4 10.5l4 4 8-9"/></svg></span>' +
+      '<span class="ctext">' + text + '</span></label>';
+  }
+
+  function noteHTML(n, i){
+    var h = '<div class="note" style="--nd:' + (i * 45 + 260) + 'ms"><h4>' + n.title + '</h4>';
+    if (n.list) h += '<ul class="blist">' + n.list.map(function(t){ return '<li>' + t + '</li>'; }).join('') + '</ul>';
+    if (n.chips) h += '<ul class="cloud-list">' + n.chips.map(function(t){ return '<li>' + t + '</li>'; }).join('') + '</ul>';
+    if (n.text) h += '<p class="sub" style="font-size:15px;color:var(--ink)">' + n.text + '</p>';
+    if (n.klook) h += '<a class="btn" href="https://s.klook.com/c/v1qpDepW3x" target="_blank" rel="noopener">查看 Klook 包車行程</a>';
+    if (n.intro) h += '<p class="sub">' + n.intro + '</p>';
+    if (n.checks) h += '<div>' + n.checks.map(function(c){ return chk(c[0], c[1]); }).join('') + '</div>';
+    if (n.outro) h += '<p style="font-size:15px">' + n.outro + '</p>';
+    return h + '</div>';
+  }
+
+  function panelHTML(i){
+    var d = DAYS[i];
+    var head = '<div class="day-head"><div class="tx"><span class="kicker">DAY ' + (i + 1) + ' ・ ' + d.date + '（' + d.wk + '）</span>' +
+      '<h3>' + d.title + '</h3><p class="spots">' + d.spots + '</p>' +
+      (d.hl ? '<span class="hl-chip">' + d.hl + '</span>' : '') + '</div>' + ICONS[d.icon] + '</div>';
+    var tl = '<ul class="tl">' + d.items.map(function(it, k){
+      var tags = it[3] ? '<div class="tgs">' + it[3].split(',').map(function(t){
+        var x = TAGS[t]; return '<span class="tg ' + x[1] + '">' + x[0] + '</span>';
+      }).join('') + '</div>' : '';
+      var must = it[4] ? '<span class="stamp">' + STAR + '必去</span>' : '';
+      var note = it[2] ? '<div class="nt">' + it[2] + '</div>' : '';
+      return '<li class="stop' + (it[4] ? ' must' : '') + '" style="--i:' + k + '">' +
+        '<span class="time' + (d.ord ? ' ord' : '') + '">' + it[0] + '</span>' +
+        '<span class="dotcol"><span class="dot"></span></span>' +
+        '<div class="card"><div class="nm"><span>' + it[1] + '</span>' + must + '</div>' + note + tags + '</div></li>';
+    }).join('') + '</ul>';
+    return head + tl + noteHTML(d.note, d.items.length);
+  }
+
+  /* ---------- 日期分頁 ---------- */
+  var tabsEl = $('#tabs'), panel = $('#panel'), cur = 0;
+  tabsEl.innerHTML = DAYS.map(function(d, i){
+    return '<button class="tab" role="tab" id="tab-' + i + '" data-i="' + i + '" aria-controls="panel" style="--dc:var(--' + d.c + ')">' +
+      '<span class="d">' + d.date + '</span><span class="w">' + d.wk + '</span></button>';
+  }).join('');
+  var tabBtns = Array.prototype.slice.call(tabsEl.children);
+
+  function show(i, user){
+    cur = i;
+    var d = DAYS[i];
+    tabBtns.forEach(function(b, k){
+      b.setAttribute('aria-selected', k === i ? 'true' : 'false');
+      b.tabIndex = k === i ? 0 : -1;
+      b.classList.remove('pop');
+    });
+    var b = tabBtns[i]; void b.offsetWidth; if (user) b.classList.add('pop');
+    panel.setAttribute('aria-labelledby', 'tab-' + i);
+    panel.style.setProperty('--dc', 'var(--' + d.c + ')');
+    panel.style.setProperty('--dct', 'var(--' + d.c + '-t)');
+    panel.innerHTML = panelHTML(i);
+    if (user) {
+      var bar = $('.tabsbar').getBoundingClientRect().bottom;
+      var top = panel.getBoundingClientRect().top;
+      if (top < bar) window.scrollTo({ top: window.scrollY + top - bar - 10, behavior: RM ? 'auto' : 'smooth' });
+    }
+  }
+  tabsEl.addEventListener('click', function(e){
+    var b = e.target.closest('.tab'); if (!b) return;
+    var i = +b.dataset.i; if (i !== cur) show(i, true);
+  });
+  tabsEl.addEventListener('keydown', function(e){
+    var k = e.key, n = cur;
+    if (k === 'ArrowRight') n = (cur + 1) % DAYS.length;
+    else if (k === 'ArrowLeft') n = (cur + DAYS.length - 1) % DAYS.length;
+    else if (k === 'Home') n = 0;
+    else if (k === 'End') n = DAYS.length - 1;
+    else return;
+    e.preventDefault(); show(n, true); tabBtns[n].focus();
+  });
+
+  var start = 0;
+  try {
+    var today = new Date().toLocaleDateString('en-CA');
+    var idx = ['2026-12-04','2026-12-05','2026-12-06','2026-12-07','2026-12-08','2026-12-09'].indexOf(today);
+    if (idx > -1) start = idx;
+  } catch (e) {}
+  show(start, false);
+
+  /* ---------- 待辦清單 ---------- */
+  var TODO = [
+    { t:'出發前', c:'coral', items:[
+      ['t1','確認護照效期足夠'],
+      ['t2','填寫 Visit Japan Web（入境審查與海關）'],
+      ['t3','預訂 12/7 旭川・美瑛包車（Klook）'],
+      ['t4','向 Klook 確認包車細節（見 12/7 行程）'],
+      ['t5','長榮航空線上報到、選座位'],
+      ['t6','準備網卡或 eSIM'],
+      ['t7','換日幣現金'],
+      ['t8','確認札幌 Factory 聖誕樹的 2026 年活動細節']
+    ]},
+    { t:'行李', c:'sky', items:[
+      ['t9','防滑雪鞋，或鞋底止滑套'],
+      ['t10','大衣、圍巾、毛帽、手套'],
+      ['t11','暖暖包'],
+      ['t12','行動電源與充電線'],
+      ['t13','個人藥品與保養品']
+    ]},
+    { t:'旅途中確認', c:'leaf', items:[
+      ['t14','12/8 出發前確認天氣與天狗山纜車是否營運'],
+      ['t15','12/9 預留雪天往機場的交通緩衝']
+    ]}
+  ];
+  $('#todo-lists').innerHTML = TODO.map(function(g){
+    return '<div class="todo-group"><h3><i style="background:var(--' + g.c + ')"></i>' + g.t + '</h3>' +
+      g.items.map(function(x){ return chk(x[0], x[1]); }).join('') + '</div>';
+  }).join('');
+
+  function updProg(){
+    var all = Array.prototype.slice.call(document.querySelectorAll('#todo-lists input'));
+    var n = all.filter(function(x){ return x.checked; }).length;
+    var pct = all.length ? Math.round(n / all.length * 100) : 0;
+    $('#prog-text').textContent = '已完成 ' + n + ' / ' + all.length;
+    $('#prog-bar').style.width = pct + '%';
+    $('#prog').setAttribute('aria-valuenow', pct);
+    $('#prog-hint').textContent = n === all.length ? '全部完成，準備出發' : '打勾會記在這支手機上';
+  }
+  document.addEventListener('change', function(e){
+    var t = e.target;
+    if (t && t.matches && t.matches('input[data-id]')) {
+      store[t.dataset.id] = t.checked; save(); updProg();
+    }
+  });
+  updProg();
+
+  /* ---------- 選單標示目前區塊 ---------- */
+  if ('IntersectionObserver' in window) {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+    var secs = links.map(function(a){ return document.getElementById(a.hash.slice(1)); });
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if (en.isIntersecting) {
+          links.forEach(function(l){ l.removeAttribute('aria-current'); });
+          links[secs.indexOf(en.target)].setAttribute('aria-current', 'true');
+        }
+      });
+    }, { rootMargin: '-35% 0px -60% 0px' });
+    secs.forEach(function(s){ if (s) io.observe(s); });
+  }
+})();
+</script>
+
+</body></html>
