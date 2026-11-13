@@ -1,4 +1,8 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>北海道冬季聖誕之旅</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -103,9 +107,10 @@ h2::after{content:"";position:absolute;left:-5px;right:-5px;bottom:2px;height:12
 .day-head .ic{width:84px;height:84px}
 .hl-chip{justify-self:start;display:inline-flex;margin-top:2px;border:var(--bd-s);border-radius:999px;padding:1px 12px 2px;font-size:14px;background:var(--coral)}
 .tl{margin-top:20px}
-.tl li{display:grid;grid-template-columns:52px 22px minmax(0,1fr);column-gap:8px}
-.tl .time{padding-top:11px;text-align:right;font-size:15px;font-variant-numeric:tabular-nums;line-height:1.5}
-.tl .time.ord{font-size:13px;padding-top:13px}
+.tl li{display:grid;grid-template-columns:58px 22px minmax(0,1fr);column-gap:6px}
+.tl .time{padding-top:11px;text-align:right;font-size:15px;font-variant-numeric:tabular-nums;line-height:1.35}
+.tl .time small{font-size:11px;color:var(--ink-soft)}
+.tl .time.ord{font-size:13px;padding-top:13px;color:var(--ink-soft)}
 .dotcol{position:relative}
 .dotcol::before{content:"";position:absolute;left:50%;top:23px;bottom:0;width:3px;margin-left:-1.5px;background:var(--ink)}
 .tl li:last-child .dotcol::before{bottom:auto;height:0}
@@ -123,7 +128,15 @@ h2::after{content:"";position:absolute;left:-5px;right:-5px;bottom:2px;height:12
 .stamp{display:inline-flex;align-items:center;gap:4px;border:var(--bd-s);border-radius:999px;padding:2px 10px 3px;font-size:13px;line-height:1.2;background:var(--coral);transform:rotate(-3deg)}
 .stamp svg{width:12px;height:12px}
 .note{margin-top:22px;border:var(--bd);border-radius:26px;background:var(--dct);padding:16px 16px 18px;display:grid;gap:10px}
+.note+.note{margin-top:14px}
 .note h4{margin:0;font-weight:400;font-size:19px}
+.ntext{font-size:15px;line-height:1.6}
+.alerts{display:grid;gap:10px}
+.alert{display:grid;grid-template-columns:56px minmax(0,1fr);gap:12px;align-items:start;border:var(--bd);border-radius:22px;background:var(--paper);padding:10px 14px 12px 10px}
+.apill{display:flex;align-items:center;justify-content:center;border:var(--bd-s);border-radius:999px;padding:1px 0 2px;font-size:14px;font-variant-numeric:tabular-nums;margin-top:2px}
+.atx{display:grid;gap:2px;min-width:0}
+.atx strong{font-weight:400;font-size:16px;line-height:1.45}
+.atx span{font-size:14px;color:var(--ink-soft);line-height:1.55}
 .blist{display:grid;gap:8px}
 .blist li{position:relative;padding-left:22px;font-size:15px;line-height:1.6}
 .blist li::before{content:"";position:absolute;left:2px;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--dc);border:2px solid var(--ink)}
@@ -225,8 +238,11 @@ footer p{font-size:14px;color:var(--ink-soft)}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
+[hidden]{display:none!important}
 </style>
 
+</head>
+<body>
 <header class="nav">
   <div class="wrap">
     <svg class="logo" viewBox="0 0 36 36" aria-hidden="true">
@@ -357,7 +373,7 @@ footer p{font-size:14px;color:var(--ink-soft)}
           </svg>
           <div class="rp r"><span class="code">CTS</span><span class="time"><small>約</small>11:00</span><span class="place">札幌新千歲機場</span></div>
         </div>
-        <p class="fl-foot">11:00 入境、領行李，12:00 搭 JR 前往札幌。</p>
+        <p class="fl-foot">04:15 抵達桃園機場，11:00 入境、領行李，約 12:30 搭機場巴士到南 3 條薄野。</p>
       </article>
       <article class="flight fl-back">
         <div class="fl-top"><span class="pill sky">回程</span><span>12/9（三）</span><span class="fl-airline">長榮航空 EVA Air</span></div>
@@ -369,7 +385,7 @@ footer p{font-size:14px;color:var(--ink-soft)}
           </svg>
           <div class="rp r"><span class="code">TPE</span><span class="time">18:55</span><span class="place">桃園國際機場 T2</span></div>
         </div>
-        <p class="fl-foot">14:00 報到、托運、安檢，依航空公司規定。</p>
+        <p class="fl-foot">約 11:30 札幌站搭 JR 前往機場，約 12:20 抵達，預留報到及托運時間。</p>
       </article>
     </div>
   </div>
@@ -389,6 +405,16 @@ footer p{font-size:14px;color:var(--ink-soft)}
   </div>
   <div class="wrap">
     <div class="panel" id="panel" role="tabpanel" tabindex="0"></div>
+  </div>
+</section>
+
+<section class="sec" id="alerts">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">HEADS-UP</p>
+      <h2 style="--hl:var(--coral)">行程提醒</h2>
+    </div>
+    <ul class="alerts" id="alerts-list"></ul>
   </div>
 </section>
 
@@ -443,7 +469,8 @@ footer p{font-size:14px;color:var(--ink-soft)}
           <div><dt>入住</dt><dd>12/4（五）15:00 後</dd></div>
           <div><dt>退房</dt><dd>12/9（三）11:00 前</dd></div>
           <div><dt>住宿</dt><dd>共 5 晚</dd></div>
-          <div><dt>提醒</dt><dd>12/4 約 13:00 抵達札幌，可先到飯店寄放行李，15:00 後入住。</dd></div>
+          <div><dt>提醒</dt><dd>12/4 約 13:45 抵達飯店，先寄放行李，20:00 返回後正式 Check-in。</dd></div>
+          <div><dt>交通</dt><dd>機場巴士停靠「南 3 條薄野」，下車步行約 2 分鐘。大通公園、聖誕市集可步行前往。</dd></div>
         </dl>
         <ul class="nights" aria-label="住宿的五個晚上">
           <li class="night"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M10 1.5A6 6 0 1 0 12.5 9 5 5 0 0 1 10 1.5Z" fill="#F6D27A" stroke="#3E3A39" stroke-width="1.6" stroke-linejoin="round"/></svg>12/4</li>
@@ -472,8 +499,7 @@ footer p{font-size:14px;color:var(--ink-soft)}
         <circle cx="30" cy="62" r="1.8" fill="#3E3A39"/><circle cx="30" cy="70" r="1.8" fill="#3E3A39"/>
       </g>
     </svg>
-    <p>2026.12.04 — 12.09 ・ 札幌 旭川 美瑛 小樽</p>
-    <p>燈飾與市集期間資料來源：ようこそさっぽろ</p>
+    <p>2026.12.04 — 12.09 ・ 札幌 美瑛 富良野 小樽</p>
   </div>
 </footer>
 
@@ -483,7 +509,7 @@ footer p{font-size:14px;color:var(--ink-soft)}
   var $ = function(s, r){ return (r || document).querySelector(s); };
 
   /* ---------- 儲存（只存在這支裝置） ---------- */
-  var KEY = 'hokkaido-2026-checks';
+  var KEY = 'hokkaido-2026-checks-v2';
   var store = {};
   try { store = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { store = {}; }
   function save(){ try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
@@ -521,134 +547,193 @@ footer p{font-size:14px;color:var(--ink-soft)}
 
   /* ---------- 行程資料 ---------- */
   var TAGS = {
-    plane:['飛機','t-sky'], jr:['JR','t-leaf'], subway:['地鐵','t-sun'],
-    walk:['步行',''], charter:['包車','t-coral'], ropeway:['纜車','t-sun']
+    plane:['飛機','t-sky'], jr:['JR','t-leaf'], bus:['巴士','t-sun'], taxi:['計程車','t-coral'],
+    transit:['大眾運輸','t-leaf'], tour:['旅行團','t-coral'], walk:['步行',''], ropeway:['纜車','t-sun']
   };
   var STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 7 7 .8-5.3 4.8 1.6 7.4L12 18.3 5.7 22l1.6-7.4L2 9.8 9 9z" fill="#F6D27A" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round"/></svg>';
   var INK = 'var(--ink)';
   var ICONS = {
     tree:'<svg class="ic" viewBox="0 0 96 96" aria-hidden="true" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="42" y="76" width="12" height="12" fill="#3E3A39"/><path d="M16 78L48 40L80 78Z" fill="#B9DAA5"/><path d="M24 58L48 28L72 58Z" fill="#B9DAA5"/><circle cx="38" cy="66" r="4" fill="#F2A497"/><circle cx="60" cy="70" r="4" fill="#F2A497"/><circle cx="48" cy="48" r="3.5" fill="#A8D3E6"/><path class="twinkle" d="M48 4l4 9 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1z" fill="#F6D27A"/></svg>',
     torii:'<svg class="ic" viewBox="0 0 96 96" aria-hidden="true" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="24" y="44" width="10" height="44" fill="#F2A497"/><rect x="62" y="44" width="10" height="44" fill="#F2A497"/><rect x="18" y="42" width="60" height="8" fill="#F2A497"/><path d="M6 22Q48 34 90 22L88 32Q48 44 8 32Z" fill="#F2A497"/><path d="M14 24Q48 34 82 24Q72 18 62 20Q48 12 34 20Q24 16 14 24Z" fill="#FFFCF6"/></svg>',
-    brick:'<svg class="ic" viewBox="0 0 96 96" aria-hidden="true" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="40" y="8" width="16" height="22" fill="#F6D27A"/><rect x="14" y="46" width="68" height="42" fill="#F2A497"/><path d="M8 48L48 22L88 48Z" fill="#B9DAA5"/><rect x="22" y="56" width="11" height="11" fill="#FFFCF6"/><rect x="63" y="56" width="11" height="11" fill="#FFFCF6"/><rect x="41" y="64" width="14" height="24" fill="#F6D27A"/></svg>',
-    penguin:'<svg class="ic" viewBox="0 0 96 96" aria-hidden="true" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><g class="waddle"><ellipse cx="38" cy="86" rx="10" ry="4.5" fill="#F6D27A"/><ellipse cx="58" cy="86" rx="10" ry="4.5" fill="#F6D27A"/><ellipse cx="48" cy="52" rx="25" ry="33" fill="#3E3A39"/><path d="M24 50Q12 64 21 76Q28 68 28 58Z" fill="#3E3A39"/><path d="M72 50Q84 64 75 76Q68 68 68 58Z" fill="#3E3A39"/><ellipse cx="48" cy="62" rx="15" ry="22" fill="#FFFCF6" stroke="none"/><path d="M27 52Q48 66 69 52L67 61Q48 74 29 61Z" fill="#F2A497"/><path d="M41 41L48 48L55 41Z" fill="#F6D27A"/><circle cx="40" cy="34" r="3.5" fill="#FFFCF6" stroke="none"/><circle cx="56" cy="34" r="3.5" fill="#FFFCF6" stroke="none"/><circle cx="40.8" cy="34" r="1.4" fill="#3E3A39" stroke="none"/><circle cx="56.8" cy="34" r="1.4" fill="#3E3A39" stroke="none"/></g></svg>',
+    boot:'<svg class="ic" viewBox="0 0 96 96" aria-hidden="true" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M32 18H60V54Q60 62 72 65Q88 69 88 80V86H30V80Q34 74 32 66Z" fill="#F2A497"/><rect x="26" y="10" width="40" height="14" rx="7" fill="#FFFCF6"/><rect x="28" y="84" width="64" height="9" rx="4.5" fill="#3E3A39"/><path d="M38 34H54M38 44H54"/><path d="M74 70H82" stroke="#FFFCF6"/><path class="twinkle" d="M14 40l3 7 7 1-5 5 1 7-6-4-6 4 1-7-5-5 7-1z" fill="#F6D27A"/></svg>',
+    hill:'<svg class="ic" viewBox="0 0 96 96" aria-hidden="true" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><circle class="twinkle" cx="72" cy="22" r="11" fill="#F6D27A"/><path d="M-2 74Q22 38 50 54T98 46V98H-2Z" fill="#FFFCF6"/><path d="M-2 98V84Q28 66 58 80T98 74V98Z" fill="#B9DAA5"/><ellipse cx="70" cy="86" rx="15" ry="5" fill="#A8D3E6"/><rect x="26" y="62" width="5" height="10" fill="#3E3A39"/><path d="M16 64L28.5 38L41 64Z" fill="#B9DAA5"/></svg>',
     lamp:'<svg class="ic" viewBox="0 0 96 96" aria-hidden="true" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><circle class="glow" cx="48" cy="24" r="22" fill="#F6D27A" stroke="none" opacity=".45"/><rect x="44" y="32" width="8" height="44" fill="#3E3A39"/><path d="M34 80H62L58 70H38Z" fill="#3E3A39"/><path d="M36 14H60L56 32H40Z" fill="#F6D27A"/><path d="M33 14L48 4L63 14Z" fill="#3E3A39"/><path d="M0 84q6-6 12 0t12 0t12 0t12 0t12 0t12 0t12 0t12 0V96H0Z" fill="#A8D3E6"/></svg>',
     gift:'<svg class="ic" viewBox="0 0 96 96" aria-hidden="true" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="16" y="46" width="64" height="42" fill="#F6D27A"/><rect x="12" y="34" width="72" height="16" rx="3" fill="#F2A497"/><rect x="42" y="34" width="12" height="54" fill="#A8D3E6"/><path class="bow" d="M48 34C34 8 14 22 48 34C82 22 62 8 48 34Z" fill="#A8D3E6"/></svg>'
   };
 
   var DAYS = [
-    { date:'12/4', wk:'五', c:'coral', icon:'tree', title:'抵達札幌・聖誕市集',
-      spots:'UNIQLO、狸小路、大通公園聖誕市集', hl:'當晚必去：慕尼黑聖誕市集',
+    { date:'12/4', wk:'五', c:'coral', icon:'tree', title:'抵達札幌・聖誕市集・狸小路',
+      spots:'成吉思汗大黑屋、大通公園聖誕市集、白色燈樹節、MEGA 唐吉訶德', hl:'當晚必去：慕尼黑聖誕市集',
       items:[
-        ['06:15','桃園機場起飛','長榮航空','plane'],
+        ['04:15','抵達桃園機場','長榮航空，桃園 T2',''],
+        ['06:15','桃園起飛','前往新千歲機場','plane'],
         ['11:00','抵達新千歲機場','入境、領行李',''],
-        ['12:00','搭 JR 前往札幌','約 40 分鐘','jr'],
-        ['13:00','抵達札幌市區','先到飯店寄放行李',''],
-        ['13:30','UNIQLO 採買','HEATTECH、手套、保暖襪','walk'],
-        ['15:00','飯店入住','稍作休息',''],
-        ['16:30','大通公園','開始欣賞冬季燈飾','walk'],
-        ['17:00','慕尼黑聖誕市集','熱紅酒、香腸、聖誕小物','walk',1],
-        ['18:30','札幌電視塔周邊','拍攝聖誕燈飾','walk'],
-        ['19:00','晚餐','湯咖哩或成吉思汗烤羊肉',''],
-        ['20:00','狸小路商店街','藥妝、唐吉訶德、零食採買','walk']
+        ['約 12:30','機場巴士','國際線搭車 → 南 3 條薄野','bus'],
+        ['約 13:45','抵達飯店','The Knot Sapporo，先寄放行李',''],
+        ['14:30','成吉思汗大黑屋','蒙古烤肉、羊肉',''],
+        ['17:00','大通公園聖誕市集','慕尼黑聖誕市集','walk',1],
+        ['〃','札幌白色燈樹節','欣賞冬季燈飾','walk'],
+        ['〃','札幌電視塔周邊','散步、拍照','walk'],
+        ['20:00','返回飯店','正式 Check-in',''],
+        ['晚上','MEGA 唐吉訶德','狸小路本店採買',''],
+        ['待定','奧芝商店湯咖哩','晚餐待定，視當天體力及營業時間決定',''],
+        ['結束','返回飯店休息','','']
       ],
-      note:{ title:'當天重點', list:[
-        '慕尼黑聖誕市集：2026/11/20～12/25，11:00～21:00。',
-        '札幌白色燈樹節：大通會場同樣在 11/20～12/25 舉辦。',
-        '12/4 抵達就能遇上兩個活動，不需要另外安排日期。'
-      ]}
+      notes:[
+        { title:'交通補充', list:[
+          '新千歲機場搭機場巴士，確認班次停靠「南 3 條薄野」，下車步行約 2 分鐘到飯店。',
+          '飯店至大通公園、聖誕市集可步行前往。',
+          '14:30 的餐廳安排要留意入境、巴士延誤及寄放行李時間，建議確認訂位是否能保留。'
+        ]}
+      ]
     },
-    { date:'12/5', wk:'六', c:'sun', icon:'torii', title:'北海道神宮・白色戀人公園',
-      spots:'北海道神宮、白色戀人公園、狸小路',
+    { date:'12/5', wk:'六', c:'sun', icon:'boot', title:'狸小路・雪靴與防寒用品採買',
+      spots:'狸小路 1～7 丁目、KOBUSHIYA、#C-pla 扭蛋機', hl:'全天集中逛狸小路',
       items:[
-        ['09:00','飯店出發','早餐',''],
-        ['10:00','北海道神宮','參拜、雪景散步','subway',1],
-        ['11:30','午餐','札幌在地料理',''],
-        ['13:00','白色戀人公園','巧克力工廠、園區拍照','subway',1],
-        ['15:30','返回札幌市區','','subway'],
-        ['16:00','狸小路商店街','逛街、藥妝、伴手禮','walk'],
-        ['18:00','晚餐','札幌味噌拉麵或海鮮料理',''],
-        ['19:30','自由活動','薄野、狸小路周邊','walk']
+        ['第 1 站','狸小路 2 丁目開始','先逛雪靴、防寒用品店','walk',1],
+        ['第 2 站','狸小路 3～4 丁目','服飾、藥妝、生活用品','walk'],
+        ['第 3 站','KOBUSHIYA 札幌店','購買伴手禮','walk'],
+        ['第 4 站','狸小路 5 丁目','#C-pla 扭蛋機','walk'],
+        ['第 5 站','狸小路 6～7 丁目','繼續逛街、挖掘特色店家','walk'],
+        ['第 6 站','狸小路 1 丁目','最後補逛、吃東西','walk']
       ],
-      note:{ title:'這天的安排想法', list:[
-        '北海道神宮和白色戀人公園都在札幌西側，安排在同一天可以避免來回移動。',
-        '狸小路排在下午到晚上，有充裕時間逛藥妝、買零食，第一天抵達就不用急著逛完整條商店街。'
-      ]}
+      notes:[
+        { title:'採買重點', list:[
+          '雪靴：優先找防滑、防水、內裡保暖的款式。',
+          '防寒用品：手套、毛帽、圍巾、保暖襪、暖暖包。',
+          '伴手禮：KOBUSHIYA 札幌店。',
+          '扭蛋：#C-pla 狸小路 5 丁目店。'
+        ]},
+        { title:'小提醒', text:'今天不安排其他遠距離景點。狸小路 1 丁目到 7 丁目可以一路逛，從 2 丁目開始的話，最後再回頭逛 1 丁目即可。' }
+      ]
     },
-    { date:'12/6', wk:'日', c:'sky', icon:'brick', title:'札幌市區・聖誕燈飾',
-      spots:'北海道大學、札幌 Factory、Akapla',
+    { date:'12/6', wk:'日', c:'sky', icon:'torii', title:'北海道神宮・帝王蟹・北大・札幌車站',
+      spots:'北海道神宮、三上商店、北海道大學、諏訪神社、Toriton', hl:'全週最滿的一天',
       items:[
-        ['09:30','飯店出發','',''],
-        ['10:00','北海道大學','校園散步、拍照',''],
-        ['11:30','午餐','札幌車站周邊',''],
-        ['13:00','札幌車站商圈','大丸、Stellar Place','walk'],
-        ['15:00','札幌 Factory','聖誕樹、室內商場',''],
-        ['17:00','Akapla 赤磚廣場','冬季燈飾、拍照','walk',1],
-        ['18:00','晚餐','札幌市區',''],
-        ['19:30','站前通燈飾','夜間散步、回飯店','walk']
+        ['09:00','飯店出發','搭計程車前往北海道神宮','taxi'],
+        ['約 09:15','抵達北海道神宮','參拜、散步、拍照','',1],
+        ['上午','六花亭 神宮茶屋店','吃點心、逛店',''],
+        ['上午','神宮茶屋','逛逛、買小吃',''],
+        ['上午','梅酒','現場確認是否有販售及是否買得到',''],
+        ['11:00','前往三上商店','準備吃帝王蟹','taxi'],
+        ['約 11:30～13:00','三上商店','帝王蟹午餐','',1],
+        ['13:00','前往北海道大學','校園散步、拍照','taxi,transit'],
+        ['下午','北海道大學','欣賞銀杏大道及校園景色',''],
+        ['下午','諏訪神社','購買長尾山雀御守','taxi'],
+        ['15:00','前往迴轉壽司 Toriton Kita 8 條店','抽取候位號碼牌',''],
+        ['15:30～18:00','札幌車站周邊百貨','大丸、Stellar Place 等逛街購物','walk'],
+        ['18:00～19:00','Toriton Kita 8 條店','回店用餐',''],
+        ['晚上','返回飯店','休息','']
       ],
-      note:{ title:'這天的特色', list:[
-        '北海道大學：冬季校園雪景。',
-        '札幌 Factory：可以欣賞室內中庭的聖誕季裝飾。巨型聖誕樹的 2026 年活動細節，建議出發前再確認。',
-        'Akapla：紅磚建築搭配冬季燈飾，適合拍有質感的照片。燈飾期間為 2026/11/20 起至 2027/3/14。'
-      ]}
+      notes:[
+        { text:'今天景點比較多，建議早上準時出門，並把壽司店的候位時間納入考量。' },
+        { title:'交通安排', list:[
+          '飯店 → 北海道神宮：計程車，約 15 分鐘，視路況而定。',
+          '北海道神宮 → 三上商店：建議搭計程車，避免轉乘耗時。',
+          '三上商店 → 北海道大學：可搭計程車或大眾運輸，依餐廳實際位置安排。',
+          '北海道大學 → 諏訪神社：建議搭計程車，節省時間。',
+          '諏訪神社 → Toriton Kita 8 條店：依實際位置搭車前往。'
+        ]},
+        { title:'需要注意', list:[
+          '15:00 抽號碼牌、18:00～19:00 回去吃，這個方式可行，但要先確認店家是否接受提前取號，以及取號後能否離店等候。',
+          '札幌 12 月日落早，北海道大學拍照建議盡量安排在下午 15:00 前。',
+          '白色戀人公園已從行程中移除。'
+        ]}
+      ]
     },
-    { date:'12/7', wk:'一', c:'leaf', icon:'penguin', title:'旭山動物園・美瑛包車一日遊',
-      spots:'旭山動物園、青池、白鬚瀑布、森林精靈露台', hl:'全日包車・長途行程',
-      ord:true,
+    { date:'12/7', wk:'一', c:'leaf', icon:'hill', title:'美瑛・富良野冬季點燈一日遊',
+      spots:'美瑛車站、四季彩之丘、美瑛聖誕樹、白鬚瀑布、森林精靈露台', hl:'已購買 KKday 行程',
       items:[
-        ['第 1 站','旭山動物園','企鵝散步、北極熊、雪地動物','charter',1],
-        ['第 2 站','美瑛青池','冬季雪景與池水','charter',1],
-        ['第 3 站','網紅樹','美瑛丘陵景觀','charter'],
-        ['第 4 站','白鬚瀑布','冬季冰雪瀑布','charter'],
-        ['第 5 站','森林精靈露台','木屋小店、夜間燈飾','charter']
+        ['09:20','大通地鐵站 31 號出口集合','','tour'],
+        ['09:30','出發','','tour'],
+        ['約上午','美瑛車站','停留 1 小時，可自由逛小鎮或自行用餐','tour'],
+        ['約中午','四季彩之丘／千代田牧場','停留 1 小時','tour'],
+        ['下午','美瑛聖誕樹','停留 30 分鐘','tour'],
+        ['下午','白鬚瀑布','停留 30 分鐘','tour'],
+        ['傍晚','森林精靈露台','停留 1 小時 20 分鐘','tour',1],
+        ['19:30','大通散團','以當天實際時間為準','']
       ],
-      note:{ title:'包車注意事項', klook:true,
-        intro:'下訂前先確認以下幾點，確認完就打勾：',
-        checks:[
-          ['k1','旭山動物園是否有足夠停留時間，尤其是企鵝散步時段。'],
-          ['k2','青池是否會安排白天與夜間兩次參觀；如果是同一個青池，可能會壓縮其他景點時間。'],
-          ['k3','森林精靈露台是否確定包含在行程內。'],
-          ['k4','白鬚瀑布與青池的點燈是否都包含。'],
-          ['k5','當天預計幾點返回札幌。']
-        ],
-        outro:'這天是長途行程，不建議再額外塞札幌市區景點。'
-      }
+      notes:[
+        { title:'已購買的行程', text:'北海道點燈一日遊｜富良野美瑛・四季彩之丘・青池・精靈露台夢幻夜色之旅' },
+        { title:'行程注意事項', list:[
+          '美瑛車站：可自由逛小鎮或自行用餐。',
+          '四季彩之丘：依人數及天候，可能改去千代田牧場玩雪，或只停留部分景點。',
+          '美瑛聖誕樹：若遇天候、交通管制或安全因素，可能改去 Ken & Mary 樹。',
+          '森林精靈露台：若無法前往，可能改去青池點燈，停留 30 分鐘。',
+          '行程可能因冬季天候、路況及景點營運狀況調整。'
+        ]},
+        { title:'當天安排建議', list:[
+          '不另外預約晚餐，回札幌後視體力找東西吃。',
+          '帶足保暖用品，尤其手套、毛帽、防水鞋。',
+          '準備簡單零食及飲水，避免午餐時間不固定。'
+        ]},
+        { title:'特別提醒', text:'「森林精靈露台」和「青池點燈」可能互相替換，並非保證兩個地方都會去。出發前可以再向旅行社確認當天的實際安排。' }
+      ]
     },
-    { date:'12/8', wk:'二', c:'coral', icon:'lamp', title:'朝里・小樽浪漫一日遊',
-      spots:'朝里、小樽運河、堺町通、天狗山',
+    { date:'12/8', wk:'二', c:'coral', icon:'lamp', title:'小樽浪漫一日遊・天狗山夜景',
+      spots:'住吉神社、音樂盒堂、LeTAO、堺町通、天狗山',
       items:[
-        ['08:30','飯店出發','札幌車站搭 JR','jr'],
-        ['09:30','朝里站','海邊鐵道、拍照','jr'],
-        ['10:30','前往小樽','JR','jr'],
-        ['11:00','小樽運河','經典景點','walk',1],
-        ['12:00','午餐','壽司、海鮮丼',''],
-        ['13:00','堺町通商店街','甜點、玻璃工藝','walk'],
-        ['14:00','北一硝子','玻璃製品','walk'],
-        ['14:30','小樽音樂盒堂','音樂盒、伴手禮','walk'],
-        ['15:30','LeTAO','起司蛋糕、甜點','walk'],
-        ['16:30','天狗山','視天候搭纜車看夜景','ropeway',1],
-        ['18:00','返回札幌','JR 回飯店','jr']
+        ['08:30','飯店出發','札幌搭 JR 前往小樽','jr'],
+        ['09:30','小樽住吉神社','參拜、拍照',''],
+        ['10:30','Otaru Cafe × Hello Kitty','咖啡、拍照',''],
+        ['12:00','小樽音樂盒堂本館','參觀、購物','',1],
+        ['13:00','LeTAO 總店','甜點、伴手禮','',1],
+        ['13:30 起','小樽堺町通商店街','逛街、購物','walk'],
+        ['〃','北一硝子 Outlet','玻璃製品','',1],
+        ['〃','六花亭 小樽運河店','甜點、伴手禮',''],
+        ['〃','Ika Taro Honpo','海鮮零食',''],
+        ['〃','SNOOPY 茶屋 小樽店','逛店、拍照',''],
+        ['〃','Chiikawa Mogumogu Honpo','吉伊卡哇周邊','',1],
+        ['〃','小樽 MIFFY PORT TOWN','Miffy 周邊','',1],
+        ['〃','三角市場','視時間安排',''],
+        ['約 16:30','從堺町通出發前往天狗山','搭乘巴士','bus'],
+        ['傍晚','天狗山纜車、觀景台','欣賞小樽夜景','ropeway',1],
+        ['晚上','返回札幌','搭 JR 回飯店','jr']
       ],
-      note:{ title:'小樽必吃、必逛', chips:['小樽運河','堺町通商店街','北一硝子','小樽音樂盒堂','LeTAO'],
-        text:'朝里站比較吃天氣，如果遇到大雪、強風或交通延誤，可以直接前往小樽，不用勉強停留。天狗山要看當天纜車是否營運及天候狀況。'
-      }
+      notes:[
+        { title:'天狗山交通', list:[
+          '從堺町通附近前往巴士站，搭乘 9 號「天狗山ロープウェイ線」。',
+          '在終點站「天狗山纜車口」下車，即可抵達天狗山山麓站。',
+          '再搭乘纜車上山至觀景台。',
+          '欣賞夜景後，搭巴士回小樽車站，再轉 JR 返回札幌。'
+        ]},
+        { title:'這天需要留意', list:[
+          '店家很多，堺町通商店街不一定能每間都逛到，建議把音樂盒堂、LeTAO、北一硝子、吉伊卡哇、Miffy 列為優先。',
+          '三角市場靠近小樽車站，與堺町通有一段距離。若要安排，建議放在早上或回程時，不要等到逛完商店街才特地折返。',
+          '16:30 出發前往天狗山的時間比較緊。冬季天黑早，但仍要確認巴士班次、纜車營運時間及當日天候。',
+          '若天狗山遇到強風或纜車停駛，建議保留小樽運河夜景作為替代方案。'
+        ]}
+      ]
     },
-    { date:'12/9', wk:'三', c:'sun', icon:'gift', title:'札幌退房・新千歲機場購物',
-      spots:'退房、新千歲機場購物、返台',
+    { date:'12/9', wk:'三', c:'sun', icon:'gift', title:'札幌退房・新千歲機場・返台',
+      spots:'飯店退房、新千歲機場購物、返台',
       items:[
-        ['08:30','早餐、整理行李','',''],
-        ['10:00','飯店退房準備','',''],
-        ['11:00','最晚退房','寄放行李後出發',''],
-        ['11:30','札幌搭 JR 前往機場','預留雪天交通緩衝','jr'],
-        ['12:20','抵達新千歲機場','建議時間',''],
-        ['12:30','機場午餐','拉麵、海鮮、湯咖哩',''],
-        ['13:00','機場購物','伴手禮採買',''],
-        ['14:00','報到、托運、安檢','依航空公司規定',''],
-        ['15:20','起飛返台','','plane'],
-        ['18:55','抵達桃園機場','T2','plane']
+        ['早上','飯店早餐、整理行李','',''],
+        ['11:00 前','飯店 Check-out','寄放行李或直接出發',''],
+        ['約 11:30','札幌站搭 JR','前往新千歲機場','jr'],
+        ['約 12:20','抵達新千歲機場','預留報到及托運時間',''],
+        ['12:20～14:30','機場午餐、購物','伴手禮、北海道限定商品',''],
+        ['15:20','新千歲機場起飛','長榮航空','plane'],
+        ['18:55','抵達桃園機場 T2','旅程結束','plane']
       ],
-      note:{ title:'新千歲機場必買', chips:['白色戀人','ROYCE’ 生巧克力','薯條三兄弟','六花亭奶油夾心餅乾','LeTAO 起司蛋糕','SNOW CHEESE'] }
+      notes:[
+        { title:'交通建議', list:[
+          '札幌站搭 JR 快速 Airport 前往新千歲機場，車程約 37～45 分鐘。',
+          '冬季可能因下雪延誤，建議不要太晚離開札幌。'
+        ]},
+        { title:'機場伴手禮', chips:['白色戀人','六花亭','ROYCE’','LeTAO'] }
+      ]
     }
+  ];
+
+  var ALERTS = [
+    ['12/4','coral','14:30 成吉思汗大黑屋','抵達及巴士時間可能影響用餐，建議確認訂位及遲到規則。'],
+    ['12/4','coral','20:00 Check-in 後還要逛唐吉訶德','晚餐與採買順序可以視體力調整。'],
+    ['12/5','sun','狸小路 1～7 丁目','逛街時間較彈性，不用趕行程。'],
+    ['12/6','sky','神宮、帝王蟹、北海道大學、諏訪神社、Toriton','這天最滿，交通建議多利用計程車。'],
+    ['12/7','leaf','美瑛富良野一日遊','景點可能替換，回札幌時間不固定。'],
+    ['12/8','coral','小樽＋天狗山','店家很多，建議優先安排想買的店。天狗山要確認冬季巴士及纜車時間。'],
+    ['12/9','sun','15:20 回程航班','建議 11:30 左右離開札幌。']
   ];
 
   function chk(id, text){
@@ -659,15 +744,21 @@ footer p{font-size:14px;color:var(--ink-soft)}
   }
 
   function noteHTML(n, i){
-    var h = '<div class="note" style="--nd:' + (i * 45 + 260) + 'ms"><h4>' + n.title + '</h4>';
+    var h = '<div class="note" style="--nd:' + (i * 45 + 260) + 'ms">';
+    if (n.title) h += '<h4>' + n.title + '</h4>';
     if (n.list) h += '<ul class="blist">' + n.list.map(function(t){ return '<li>' + t + '</li>'; }).join('') + '</ul>';
     if (n.chips) h += '<ul class="cloud-list">' + n.chips.map(function(t){ return '<li>' + t + '</li>'; }).join('') + '</ul>';
-    if (n.text) h += '<p class="sub" style="font-size:15px;color:var(--ink)">' + n.text + '</p>';
-    if (n.klook) h += '<a class="btn" href="https://s.klook.com/c/v1qpDepW3x" target="_blank" rel="noopener">查看 Klook 包車行程</a>';
-    if (n.intro) h += '<p class="sub">' + n.intro + '</p>';
-    if (n.checks) h += '<div>' + n.checks.map(function(c){ return chk(c[0], c[1]); }).join('') + '</div>';
-    if (n.outro) h += '<p style="font-size:15px">' + n.outro + '</p>';
+    if (n.text) h += '<p class="ntext">' + n.text + '</p>';
     return h + '</div>';
+  }
+
+  function timeHTML(t){
+    var m = t.match(/^(約)?\s*(\d\d:\d\d)(?:～(\d\d:\d\d)|\s*(起|前))?$/);
+    if (!m) return '<span class="time ord">' + t + '</span>';
+    var x = (m[1] ? '<small>約</small> ' : '') + m[2];
+    if (m[3]) x += '<br><small>～</small>' + m[3];
+    else if (m[4]) x += ' <small>' + m[4] + '</small>';
+    return '<span class="time">' + x + '</span>';
   }
 
   function panelHTML(i){
@@ -682,11 +773,12 @@ footer p{font-size:14px;color:var(--ink-soft)}
       var must = it[4] ? '<span class="stamp">' + STAR + '必去</span>' : '';
       var note = it[2] ? '<div class="nt">' + it[2] + '</div>' : '';
       return '<li class="stop' + (it[4] ? ' must' : '') + '" style="--i:' + k + '">' +
-        '<span class="time' + (d.ord ? ' ord' : '') + '">' + it[0] + '</span>' +
+        timeHTML(it[0]) +
         '<span class="dotcol"><span class="dot"></span></span>' +
         '<div class="card"><div class="nm"><span>' + it[1] + '</span>' + must + '</div>' + note + tags + '</div></li>';
     }).join('') + '</ul>';
-    return head + tl + noteHTML(d.note, d.items.length);
+    var notes = d.notes.map(function(n, k){ return noteHTML(n, d.items.length + k); }).join('');
+    return head + tl + notes;
   }
 
   /* ---------- 日期分頁 ---------- */
@@ -741,30 +833,38 @@ footer p{font-size:14px;color:var(--ink-soft)}
   /* ---------- 待辦清單 ---------- */
   var TODO = [
     { t:'出發前', c:'coral', items:[
-      ['t1','確認護照效期足夠'],
-      ['t2','填寫 Visit Japan Web（入境審查與海關）'],
-      ['t3','預訂 12/7 旭川・美瑛包車（Klook）'],
-      ['t4','向 Klook 確認包車細節（見 12/7 行程）'],
-      ['t5','長榮航空線上報到、選座位'],
-      ['t6','準備網卡或 eSIM'],
-      ['t7','換日幣現金'],
-      ['t8','確認札幌 Factory 聖誕樹的 2026 年活動細節']
+      ['a1','確認護照效期足夠'],
+      ['a2','填寫 Visit Japan Web（入境審查與海關）'],
+      ['a3','長榮航空線上報到、選座位'],
+      ['a4','確認 12/4 成吉思汗大黑屋訂位與遲到規則'],
+      ['a5','確認 12/7 KKday 集合資訊（大通地鐵站 31 號出口 09:20）'],
+      ['a6','準備網卡或 eSIM'],
+      ['a7','換日幣現金']
     ]},
     { t:'行李', c:'sky', items:[
-      ['t9','防滑雪鞋，或鞋底止滑套'],
-      ['t10','大衣、圍巾、毛帽、手套'],
-      ['t11','暖暖包'],
-      ['t12','行動電源與充電線'],
-      ['t13','個人藥品與保養品']
+      ['b1','防滑雪鞋，或鞋底止滑套'],
+      ['b2','大衣、圍巾、毛帽、手套'],
+      ['b3','暖暖包'],
+      ['b4','行動電源與充電線'],
+      ['b5','個人藥品與保養品'],
+      ['b6','簡單零食與飲水（12/7 午餐時間不固定）']
     ]},
     { t:'旅途中確認', c:'leaf', items:[
-      ['t14','12/8 出發前確認天氣與天狗山纜車是否營運'],
-      ['t15','12/9 預留雪天往機場的交通緩衝']
+      ['c1','12/4 機場巴士確認停靠「南 3 條薄野」'],
+      ['c2','12/6 確認 Toriton 是否接受提前取號、取號後能否離店'],
+      ['c3','12/7 出發前向旅行社確認當天實際安排（森林精靈露台或青池）'],
+      ['c4','12/8 確認天狗山巴士班次與纜車營運時間'],
+      ['c5','12/9 11:30 左右離開札幌，預留雪天緩衝']
     ]}
   ];
   $('#todo-lists').innerHTML = TODO.map(function(g){
     return '<div class="todo-group"><h3><i style="background:var(--' + g.c + ')"></i>' + g.t + '</h3>' +
       g.items.map(function(x){ return chk(x[0], x[1]); }).join('') + '</div>';
+  }).join('');
+
+  $('#alerts-list').innerHTML = ALERTS.map(function(a){
+    return '<li class="alert"><span class="apill" style="background:var(--' + a[1] + ')">' + a[0] + '</span>' +
+      '<div class="atx"><strong>' + a[2] + '</strong><span>' + a[3] + '</span></div></li>';
   }).join('');
 
   function updProg(){
@@ -800,5 +900,5 @@ footer p{font-size:14px;color:var(--ink-soft)}
   }
 })();
 </script>
-
-</body></html>
+</body>
+</html>
